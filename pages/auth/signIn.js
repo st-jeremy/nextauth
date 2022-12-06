@@ -5,7 +5,7 @@ export default function SignIn({ csrfToken }) {
 
   return (
     <Box>
-      <Heading m={50} color='blue.700'>Authetication using NextAuth</Heading>
+      <Heading m={50} color='blue.700'>Authentication using NextAuth</Heading>
 
       <Box textAlign={'center'} margin={'auto'} mt='100' p='2rem 1rem' borderRadius={15} boxShadow='lg' width={{base: '95%', sm:'85%', md: '60%', lg: '600px' }} >
 

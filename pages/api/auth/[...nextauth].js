@@ -8,8 +8,8 @@ export default NextAuth({
         const user = { id: 1, name: "Manager", email: "jsmith@example.com" }
 
         if(credentials?.email === 
-          "test@sendme.ng" ||
-          "manager@sendme.ng"
+          "test@gmail.ng" ||
+          "manager@gmail.ng"
           && 
           credentials?.password===
           "hello123" ){
