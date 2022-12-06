@@ -1,15 +1,28 @@
+import { Box } from "@chakra-ui/react";
 import { getSession, signIn, signOut, useSession } from "next-auth/react";
+import MenuPlacement from '/Components/MenuPlacement';
 
 const Dashboard = () => {
-  const { data: session, status } = useSession();
+  const { data: session, loading } = useSession();
+
+  if (loading){
+    return <div>Loading...</div>
+  };
 
   return(
-    <div>
-      <h1>This is the Dashboard</h1>
-    </div>
+    <Box>
+      <MenuPlacement />
+
+      {session.user.name} is signed in as {session.user.email}.
+          <br />
+          <br />
+          Your token expires {session.expires}. <br />
+          
+          <button onClick={()=> signOut()}>Sign Out</button>
+
+    </Box>
   )
 }
- 
 export default Dashboard;
 
 export const getServerSideProps = async (context) => {

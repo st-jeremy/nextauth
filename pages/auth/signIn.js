@@ -1,21 +1,47 @@
-import { getCsrfToken, getSession} from "next-auth/react"
-import { signIn } from "next-auth/react"
+import { getCsrfToken, getSession} from "next-auth/react";
+import { Box, Input, Heading } from "@chakra-ui/react";
 
 export default function SignIn({ csrfToken }) {
 
   return (
-    <form method="post" action="/api/auth/callback/credentials">
-      <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-      <label>
-        Email
-        <input name="Email" type="email" />
-      </label>
-      <label>
-        Password
-        <input name="password" type="password" />
-      </label>
-      <button type="submit" >Sign in</button>
-    </form>
+    <Box>
+      <Heading m={50}>NextAuth</Heading>
+      <Box textAlign={'center'} margin={'auto'} mt='150' p='5rem 5rem' borderRadius={15} boxShadow='lg' width='70%'>
+        <form method="post" action="/api/auth/callback/credentials">
+          <h1><b>Nextauth Login</b></h1>
+          <br />
+
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+
+          <Input 
+            type="email"
+            name="email" 
+            id="email" 
+            placeholder="Email address" 
+            width={400} 
+            marginBottom={30} />
+            <br />
+
+
+          <Input 
+            type="password"  
+            name="password" id="" 
+            placeholder="Password" 
+            width={400} 
+            marginBottom={30} 
+          />
+          <br />
+
+          <Input 
+            type="submit" 
+            value="Login" 
+            width={300} 
+            color='teal' 
+            bgColor={'blackAlpha.300'} 
+          />
+        </form>
+      </Box>
+    </Box>
   )
 }
 

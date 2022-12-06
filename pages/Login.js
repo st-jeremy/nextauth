@@ -1,39 +1,37 @@
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
+import Dashboard from './Dashboard';
+import { useRouter } from 'next/router'
+
 
 const Login = () => {
   const { data:session, loading} = useSession();
-
+  
   if (loading){
     return <div>Loading...</div>
   };
 
-  function logToggle(){
+  function LogToggle(){
+
+    // const router = useRouter();
     if (session){
       return(
         <>
-        {session.user.name} is signed in as {session.user.email}.
-        <br />
-        <br />
-        Your token expires {session.expires}. <br />
-        <img src={session.user.image} alt='user picture' width={300} height={300} style={{borderRadius: '50%'}}/>
-
-        <br />
-        <button onClick={()=> signOut()}>Sign Out</button>
-      </>
+          <Dashboard />
+        </>
       )
-    }else{
-      return(
+    }
+    else{
+      return( 
         <>
-          Not signed in 
-          <br />
-          <br />
-          <button onClick={()=> signIn({callbackUrl:'/Dashboard'})}>Sign In</button>
+          {/* useRouter().push(href) */}
+          {/* Router.replace("/auth/signIn"); */}
+          <button onClick={()=> signIn({callbackUrl:'/auth/SignIn'})}>Sign In</button>
         </>
       )
     }
   }
   return ( 
-    <div className="btn">{logToggle()}</div>
+    <div className="btn">{LogToggle()}</div>
    );
 }
  
