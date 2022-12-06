@@ -1,5 +1,6 @@
 import { Box, Button } from "@chakra-ui/react";
 import { getSession, signIn, signOut, useSession } from "next-auth/react";
+import LogoutButton from "../Components/LogoutAlert";
 import MenuPlacement from '/Components/MenuPlacement';
 
 const Dashboard = () => {
@@ -11,14 +12,15 @@ const Dashboard = () => {
 
   return(
     <Box>
-      <MenuPlacement />
+      {/* <MenuPlacement /> */}
+     
 
       {session.user.name} is signed in as {session.user.email}.
       <br />
       <br />
       Your token expires {session.expires}. <br />
       
-      <Button onClick={()=> signOut()}>Sign Out</Button>
+      <LogoutButton />
 
     </Box>
   )
