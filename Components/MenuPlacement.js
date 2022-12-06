@@ -14,6 +14,7 @@ import {
 import { signOut } from 'next-auth/react';
 import { useDisclosure, useState } from '@chakra-ui/react';
 import React from 'react';
+import LogoutAlert from './LogoutAlert';
 
 function MenuPlacement() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -25,8 +26,7 @@ function MenuPlacement() {
       <Button colorScheme='blue' defaultValue= {onOpen} onClick={onOpen}>
         Open
       </Button>
-      <Drawer placement='left
-      ' onClose={onClose} isOpen={isOpen}>
+      <Drawer placement='left' onClose={onClose} isOpen={isOpen}>
         {/* <DrawerOverlay /> */}
         <DrawerContent>
           <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader>
@@ -34,7 +34,7 @@ function MenuPlacement() {
             <p>Some contents...</p>
             <p>Some contents...</p>
             <p>Some contents...</p>
-            <Button onClick={()=>signOut()}>Log Out</Button>
+            <Button onClick={()=>{<LogoutAlert />}}>Log Out</Button>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

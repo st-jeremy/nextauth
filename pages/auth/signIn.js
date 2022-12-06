@@ -7,25 +7,26 @@ export default function SignIn({ csrfToken }) {
     <Box>
       <Heading m={50}>NextAuth</Heading>
       <Box textAlign={'center'} margin={'auto'} mt='150' p='5rem 5rem' borderRadius={15} boxShadow='lg' width='70%'>
+        
         <form method="post" action="/api/auth/callback/credentials">
-          <h1><b>Nextauth Login</b></h1>
+
+          <Heading> Login</Heading>
           <br />
 
-          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+          <Input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 
           <Input 
             type="email"
             name="email" 
-            id="email" 
             placeholder="Email address" 
             width={400} 
-            marginBottom={30} />
-            <br />
-
-
+            marginBottom={30} 
+          />
+          <br />
+           
           <Input 
             type="password"  
-            name="password" id="" 
+            name="password" 
             placeholder="Password" 
             width={400} 
             marginBottom={30} 

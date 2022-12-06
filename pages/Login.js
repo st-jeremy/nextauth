@@ -1,38 +1,53 @@
 import { signIn, useSession } from 'next-auth/react';
 import Dashboard from './Dashboard';
 import { useRouter } from 'next/router'
-
+import { Box, Button } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react'
+import { useEffect } from 'react';
+import SignOut from './auth/signOut';
 
 const Login = () => {
-  const { data:session, loading} = useSession();
-  
+
+  const toast = useToast()
+  const { data:session, loading, status} = useSession();
+
+  useEffect(()=> {
+    if(status === 'authenticated'){
+      toast({
+        title: "Logged in successfully",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+    }else if(status === 'unauthenticated'){
+      toast({
+        title: "Logged out successfully",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
+    }
+  }, [status, toast])
+
+ 
   if (loading){
     return <div>Loading...</div>
   };
 
-  function LogToggle(){
-
-    // const router = useRouter();
-    if (session){
-      return(
-        <>
-          <Dashboard />
-        </>
-      )
-    }
-    else{
-      return( 
-        <>
-          {/* useRouter().push(href) */}
-          {/* Router.replace("/auth/signIn"); */}
-          <button onClick={()=> signIn({callbackUrl:'/auth/SignIn'})}>Sign In</button>
-        </>
-      )
-    }
+  const handleLogin = ()=>{
+    signIn();
   }
-  return ( 
-    <div className="btn">{LogToggle()}</div>
-   );
+  
+ return (
+  <>
+  {status === 'authenticated' ? (
+    <Dashboard />
+  ): (
+    <Button onClick={handleLogin}>Sign In</Button>
+  )}
+
+  </>
+ )
 }
  
 export default Login;
