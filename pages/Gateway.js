@@ -18,14 +18,14 @@ const Login = () => {
         isClosable: true,
       });
     }
-    // else if(status === 'unauthenticated'){
-      // toast({
-      //   title: "Logged out successfully",
-      //   status: 'success',
-      //   duration: 3000,
-      //   isClosable: true,
-      // })
-    // }
+    else if(status === 'unauthenticated'){
+      toast({
+        title: "Logged out successfully",
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
+    }
   }, [status, toast])
 
  
