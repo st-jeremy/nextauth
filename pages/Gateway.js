@@ -1,10 +1,8 @@
 import { signIn, useSession } from 'next-auth/react';
 import Dashboard from './Dashboard';
-import { useRouter } from 'next/router'
-import { Box, Button } from '@chakra-ui/react';
-import { useToast } from '@chakra-ui/react'
+import { Box, Button, useToast, Spinner } from '@chakra-ui/react';
 import { useEffect } from 'react';
-import SignOut from './auth/signOut';
+import LogoutButton from '../Components/LogoutAlert';
 
 const Login = () => {
 
@@ -19,20 +17,31 @@ const Login = () => {
         duration: 3000,
         isClosable: true,
       });
-    }else if(status === 'unauthenticated'){
-      toast({
-        title: "Logged out successfully",
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      })
     }
+    // else if(status === 'unauthenticated'){
+      // toast({
+      //   title: "Logged out successfully",
+      //   status: 'success',
+      //   duration: 3000,
+      //   isClosable: true,
+      // })
+    // }
   }, [status, toast])
 
  
   if (loading){
-    return <div>Loading...</div>
-  };
+    return (<Box>
+      <Spinner
+        thickness='4px'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='2xl'
+        padding='5'
+      />
+      Loading...
+    </Box>
+  )};
 
   const handleLogin = ()=>{
     signIn();
@@ -41,7 +50,8 @@ const Login = () => {
  return (
   <>
   {status === 'authenticated' ? (
-    <Dashboard />
+    <LogoutButton />
+   
   ): (
     <Button onClick={handleLogin}>Sign In</Button>
   )}

@@ -1,12 +1,17 @@
 import { Box, Heading } from "@chakra-ui/react";
 import Gateway from "../pages/Gateway";
+import Link from "next/link";
 
 const Navbar = () => {
   return ( 
-    <Box display='flex' backgroundColor='blue.100' padding='5'>
-      <Heading>Authetication</Heading>
+    <Box display='flex' backgroundColor='grey' padding='3'>
+      <Link href='/'>
+        <Heading>Authentication</Heading>
+      </Link>
 
-      <Gateway />
+      <Box position='absolute' right='5'>
+        <Gateway />
+      </Box>
     </Box>
    );
 }

@@ -7,15 +7,14 @@ export default NextAuth({
       async authorize(credentials, req) {
         const user = { id: 1, name: "Manager", email: "jsmith@example.com" }
 
-        if(credentials?.email === 
-          "test@gmail.ng" ||
-          "manager@gmail.ng"
+        if(credentials.email === 
+          "test@gmail.com"
           && 
-          credentials?.password===
+          credentials.password===
           "hello123" ){
         return user
         }else{
-          return null;
+          return alert('incorrect login credentials');
         }
       }
     })
@@ -38,5 +37,6 @@ export default NextAuth({
   pages: {
     signIn: '/auth/SignIn',
     signOut: '/auth/SignOut',
+    error: 'auth/Error'
   }
 })

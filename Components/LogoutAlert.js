@@ -40,7 +40,6 @@ export default function LogoutButton() {
             <AlertDialogBody fontWeight='500'>
               Are you sure? 
               <br />
-              You can&apos;t undo this action afterwards.
             </AlertDialogBody>
 
             <AlertDialogFooter>

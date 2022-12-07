@@ -16,7 +16,7 @@ export default function SignIn({ csrfToken }) {
 
           <Input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 
-          <Tooltip label="Use 'manager@sendme.ng'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} defaultIsOpen='true'>
+          <Tooltip label="Use 'manager@gmail.ng'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} defaultIsOpen='true'>
             <Input 
               type="email"
               name="email" 

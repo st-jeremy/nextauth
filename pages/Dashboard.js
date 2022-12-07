@@ -1,6 +1,8 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import { getSession, useSession } from "next-auth/react";
-import LogoutButton from "../Components/LogoutAlert";
+import Image from "next/image";
+import Navbar from "../Components/Navbar";
+import vault from '../public/vault.jpeg'
 
 const Dashboard = () => {
   const { data: session, loading } = useSession();
@@ -10,10 +12,17 @@ const Dashboard = () => {
   };
 
   return(
-    <Box>
-      <LogoutButton />
-      This is the protected route
-    </Box>
+    <>
+      <Navbar />
+      <Box bgColor='whiteAlpha.100'>
+        <Heading padding='5%' textAlign='center'>
+          This is the protected route.
+        </Heading>
+        <Box margin='auto' width={700}>
+          <Image src={ vault } width={700} height={500} alt='vault' />
+        </Box>
+      </Box>
+    </>
   )
 }
 export default Dashboard;
@@ -24,7 +33,7 @@ export const getServerSideProps = async (context) => {
   if (!session){
     return{
       redirect:{
-        destination: '/',
+        destination: '/auth/SignIn',
       }
     }
   }
