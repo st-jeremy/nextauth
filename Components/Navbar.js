@@ -6,10 +6,10 @@ const Navbar = () => {
   return ( 
     <Box display='flex' backgroundColor='grey' padding='3'>
       <Link href='/'>
-        <Heading>Authentication</Heading>
+        <Heading fontSize={{base: 'xl', md: '3xl'}}>Authentication</Heading>
       </Link>
 
-      <Box position='absolute' right='5'>
+      <Box position='absolute' right='5' top='2'>
         <Gateway />
       </Box>
     </Box>

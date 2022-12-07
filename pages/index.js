@@ -24,13 +24,15 @@ export default function Home() {
           <Navbar />
           <Heading textAlign='center' padding='15' mt='20' >Welcome to the Authentication with NextAuth.Js</Heading>
 
-          <Box margin='auto' width='fit-content' mt='10'>
+          <Box margin='auto' width='fit-content' mt='10' mb='40'>
             <Image src={auth} alt='authentication' width={500} height={400} />
+
+            <Link href='./Dashboard'>
+              <Button>Dashboard</Button>
+          </Link>
           </Box>
 
-          <Link href='./Dashboard'>
-            <Button>Dashboard</Button>
-          </Link>
+          
 
         </Box>
 
