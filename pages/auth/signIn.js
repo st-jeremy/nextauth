@@ -10,7 +10,6 @@ import {
   FormControl
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
 export default function SignIn({ csrfToken }) {
   const [show, setShow] = useState(false)
@@ -72,7 +71,7 @@ export default function SignIn({ csrfToken }) {
               />
               <InputRightElement width='4.5rem'>
                 <Button h='1.75rem' size='sm' mt='2' bgColor='white' onClick={handleClick}>
-                  {show ? < AiOutlineEyeInvisible /> : <AiOutlineEye /> }
+                  {show ? '&#xF340;' : '&#xF341;' }
                 </Button>
               </InputRightElement>
             </InputGroup>
