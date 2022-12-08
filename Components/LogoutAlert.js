@@ -5,7 +5,8 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
-  Button
+  Button,
+  useToast
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
 import React from 'react';
@@ -14,8 +15,16 @@ import { signOut } from 'next-auth/react';
 export default function LogoutButton() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
+  const toast = useToast();
+
   const handleLogout = ()=> {
     signOut();
+    toast({
+      title: "Logged out successfully",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
   }
 
   return (
