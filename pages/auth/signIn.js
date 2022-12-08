@@ -18,9 +18,9 @@ export default function SignIn({ csrfToken }) {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
-  const [input, setInput] = useState('')
-  const handleInputChange = (e) => setInput(e.target.value)
-  const isError = input === ''
+  // const [input, setInput] = useState('')
+  // const handleInputChange = (e) => setInput(e.target.value)
+  // const isError = input === ''
 
 
   return (
@@ -29,7 +29,9 @@ export default function SignIn({ csrfToken }) {
 
       <Box textAlign={'center'} margin={'auto'} mt='100' p='2rem 1rem' borderRadius={15} boxShadow='lg' width={{base: '95%', sm:'85%', md: '60%', lg: '600px' }} >
 
-      <FormControl isInvalid={isError}>
+      <FormControl 
+      // isInvalid={isError}
+      >
         <form method="post" action="/api/auth/callback/credentials">
           <Heading> Login</Heading>
           <br />
@@ -45,15 +47,15 @@ export default function SignIn({ csrfToken }) {
               width={{base: '13rem', sm:'19rem', md: '23rem', lg: '25rem' }} 
               size='lg'
               bgColor='white'
-              errorBorderColor = "red.500"
-              value={input} 
-              onChange={handleInputChange}
+              // errorBorderColor = "red.500"
+              // value={input} 
+              // onChange={handleInputChange}
             />
-            {!isError ? ('') : (
+            {/* {!isError ? ('') : (
               <FormErrorMessage >
-                Email is required.
+                Email is required. Use &apos;test@gmail.com&apos;
               </FormErrorMessage>
-            )}
+            )} */}
             </InputGroup>
           </Tooltip>
           <br />
@@ -69,7 +71,6 @@ export default function SignIn({ csrfToken }) {
                 placeholder="Password"
                 size='lg'
                 bgColor='white'
-                errorBorderColor = "red.500"
               />
               <InputRightElement width='4.5rem'>
                 <Button h='1.75rem' size='sm' mt='2' bgColor='white' onClick={handleClick}>

@@ -1,7 +1,11 @@
+import { useToast } from "@chakra-ui/react";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import LogoutButton from "../../../Components/LogoutAlert";
+
 
 export default NextAuth({
+  
   providers:[
     CredentialsProvider({
       async authorize(credentials, req) {
@@ -10,7 +14,7 @@ export default NextAuth({
         if(credentials.email === "test@gmail.com" && credentials.password=== "hello123" ){
         return user
         }else{
-          return alert('incorrect login credentials');
+          return null
         }
       }
     })
@@ -21,12 +25,14 @@ export default NextAuth({
     updateAge: 10*60*60*24
   },
   callbacks: {
+    
     async signIn() {
       const isAllowedToSignIn = true
+
       if (isAllowedToSignIn) {
         return true
       } else {
-        return false
+        return  <LogoutButton />
       }
     },
   },
