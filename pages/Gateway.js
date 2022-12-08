@@ -17,6 +17,14 @@ const Login = () => {
         isClosable: true,
       });
     }
+    //  else if (status === 'unauthenticated'){
+    //   toast({
+    //     title: "Incorrect login credentials",
+    //     status: 'error',
+    //     duration: 3000,
+    //     isClosable: true,
+    //   });
+    // }
   }, [status, toast])
 
  
