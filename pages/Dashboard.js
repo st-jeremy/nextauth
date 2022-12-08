@@ -39,7 +39,7 @@ export const getServerSideProps = async (context) => {
   if (!session){
     return{
       redirect:{
-        destination: '/auth/SignIn',
+        destination: '/api/auth/SignIn',
       }
     }
   }

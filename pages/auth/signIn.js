@@ -7,9 +7,7 @@ import {
   InputRightElement, 
   Button, 
   InputGroup,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,  
+  FormControl
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
