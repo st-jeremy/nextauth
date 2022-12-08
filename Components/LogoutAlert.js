@@ -22,7 +22,7 @@ export default function LogoutButton() {
     toast({
       title: "Logged out successfully",
       status: 'success',
-      duration: 3000,
+      duration: 5000,
       isClosable: true,
     });
   }

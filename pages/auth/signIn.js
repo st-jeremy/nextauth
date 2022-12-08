@@ -19,7 +19,7 @@ export default function SignIn({ csrfToken }) {
 
           <Input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 
-          <Tooltip label="Use 'test@gmail.ng'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} defaultIsOpen='true' bgColor='blue.700' >
+          <Tooltip label="Use 'test@gmail.ng'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} bgColor='blue.700' >
             <Input 
               type="email"
               name="email" 
@@ -32,7 +32,7 @@ export default function SignIn({ csrfToken }) {
           </Tooltip>
           <br />
            
-          <Tooltip label="Use 'hello123'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} defaultIsOpen='true' bgColor='blue.700' >
+          <Tooltip label="Use 'hello123'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} bgColor='blue.700' >
             <InputGroup 
                 width={{base: '90%', sm:'70%', md: '70%', lg: '500px' }} 
                 margin='auto'
