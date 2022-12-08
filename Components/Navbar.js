@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return ( 
-    <Box display='flex' backgroundColor='grey' padding='3'>
+    <Box display='flex' backgroundColor='blue.200' padding='3'>
       <Link href='/'>
         <Heading fontSize={{base: 'xl', md: '3xl'}}>Authentication</Heading>
       </Link>

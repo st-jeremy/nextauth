@@ -8,16 +8,16 @@ const Login = () => {
   const toast = useToast()
   const { data:session, loading, status} = useSession();
 
-  useEffect(()=> {
-    if(status === 'authenticated'){
-      toast({
-        title: "Logged in successfully",
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      });
-    }
-  }, [status, toast])
+  // useEffect(()=> {
+  //   if(status === 'authenticated'){
+  //     toast({
+  //       title: "Logged in successfully",
+  //       status: 'success',
+  //       duration: 3000,
+  //       isClosable: true,
+  //     });
+  //   }
+  // }, [status, toast])
 
  
   if (loading){
@@ -36,6 +36,12 @@ const Login = () => {
 
   const handleLogin = ()=>{
     signIn('', {callbackUrl:'http://localhost:3000/Dashboard'});
+    toast({
+      title: "Logged in successfully",
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
   }
   
  return (
