@@ -1,11 +1,12 @@
 import { getCsrfToken, getSession} from "next-auth/react";
 import { Box, Input, Heading, Tooltip } from "@chakra-ui/react";
+import PasswordInput from "../../Components/PasswordInput";
 
 export default function SignIn({ csrfToken }) {
 
   return (
     <Box>
-      <Heading m={50} color='blue.700'>Authentication using NextAuth</Heading>
+      <Heading m={50} color='blue.700'>Admin</Heading>
 
       <Box textAlign={'center'} margin={'auto'} mt='100' p='2rem 1rem' borderRadius={15} boxShadow='lg' width={{base: '95%', sm:'85%', md: '60%', lg: '600px' }} >
 
@@ -16,24 +17,29 @@ export default function SignIn({ csrfToken }) {
 
           <Input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 
-          <Tooltip label="Use 'manager@gmail.ng'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} defaultIsOpen='true'>
+          <Tooltip label="Use 'test@gmail.ng'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} defaultIsOpen='true' bgColor='blue.700' >
             <Input 
               type="email"
               name="email" 
               placeholder="Email address" 
               width={{base: '90%', sm:'70%', md: '70%', lg: '500px' }} 
               marginBottom={30} 
+              size='lg'
             />
           </Tooltip>
           <br />
            
           <Tooltip label="Use 'hello123'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} >
-            <Input 
+            {/* <Input 
               type="password"  
               name="password" 
               placeholder="Password" 
               width={{base: '90%', sm:'70%', md: '70%', lg: '500px' }}
               marginBottom={50} 
+            /> */}
+            <PasswordInput 
+              placeholder="Password" 
+              marginBottom={60} 
             />
           </Tooltip>
           <br />

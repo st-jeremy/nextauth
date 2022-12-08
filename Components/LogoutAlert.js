@@ -44,10 +44,10 @@ export default function LogoutButton() {
 
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={onClose}>
-                Cancel
+                No, Cancel
               </Button>
               <Button colorScheme='red' onClick={handleLogout} ml={3}>
-                Log out
+                Yes, Log out
               </Button>
             </AlertDialogFooter>
           </AlertDialogContent>

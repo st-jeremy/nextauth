@@ -7,11 +7,7 @@ export default NextAuth({
       async authorize(credentials, req) {
         const user = { id: 1, name: "Manager", email: "jsmith@example.com" }
 
-        if(credentials.email === 
-          "test@gmail.com"
-          && 
-          credentials.password===
-          "hello123" ){
+        if(credentials.email === "test@gmail.com" && credentials.password=== "hello123" ){
         return user
         }else{
           return alert('incorrect login credentials');

@@ -5,7 +5,6 @@ import { useSession } from 'next-auth/react';
 import auth from '../public/authentication-gif.gif';
 import Image from 'next/image';
 import Link from 'next/link';
-import Dashboard from './Dashboard';
 
 
 export default function Home() {
@@ -31,9 +30,6 @@ export default function Home() {
               <Button>Dashboard</Button>
           </Link>
           </Box>
-
-          
-
         </Box>
 
       </main>

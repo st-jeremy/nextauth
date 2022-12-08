@@ -1,5 +1,4 @@
 import { signIn, useSession } from 'next-auth/react';
-import Dashboard from './Dashboard';
 import { Box, Button, useToast, Spinner } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import LogoutButton from '../Components/LogoutAlert';
@@ -44,14 +43,13 @@ const Login = () => {
   )};
 
   const handleLogin = ()=>{
-    signIn();
+    signIn('', {callbackUrl:'http://localhost:3000/Dashboard'});
   }
   
  return (
   <>
   {status === 'authenticated' ? (
     <LogoutButton />
-   
   ): (
     <Button onClick={handleLogin}>Sign In</Button>
   )}
