@@ -15,20 +15,13 @@ export default function SignIn({ csrfToken }) {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
-  // const [input, setInput] = useState('')
-  // const handleInputChange = (e) => setInput(e.target.value)
-  // const isError = input === ''
-
-
   return (
     <Box>
       <Heading m={50} color='blue.700'>Admin</Heading>
 
       <Box textAlign={'center'} margin={'auto'} mt='100' p='2rem 1rem' borderRadius={15} boxShadow='lg' width={{base: '95%', sm:'85%', md: '60%', lg: '600px' }} >
 
-      <FormControl 
-      // isInvalid={isError}
-      >
+      <FormControl>
         <form method="post" action="/api/auth/callback/credentials">
           <Heading> Login</Heading>
           <br />
@@ -44,15 +37,7 @@ export default function SignIn({ csrfToken }) {
               width={{base: '13rem', sm:'19rem', md: '23rem', lg: '25rem' }} 
               size='lg'
               bgColor='white'
-              // errorBorderColor = "red.500"
-              // value={input} 
-              // onChange={handleInputChange}
             />
-            {/* {!isError ? ('') : (
-              <FormErrorMessage >
-                Email is required. Use &apos;test@gmail.com&apos;
-              </FormErrorMessage>
-            )} */}
             </InputGroup>
           </Tooltip>
           <br />

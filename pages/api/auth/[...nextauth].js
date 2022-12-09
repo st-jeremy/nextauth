@@ -1,4 +1,3 @@
-import { useToast } from "@chakra-ui/react";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -33,13 +32,12 @@ export default NextAuth({
       if (isAllowedToSignIn) {
         return true
       } else {
-        return  null
+        return  false
       }
     },
   },
 
   pages: {
     signIn: '/auth/SignIn',
-    // signOut: '/auth/SignOut',
   }
 })

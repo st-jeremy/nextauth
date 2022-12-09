@@ -24,7 +24,7 @@ export default function Home() {
           <Box margin='5' bgColor='red.100' w='fit-content' p='5'>
             <Link href='./Dashboard'>
               <Button>Dashboard</Button>
-              <p>NB: Only admin can access here!</p>
+              <p>NB: Authentication needed!</p>
             </Link>
           </Box>
 
