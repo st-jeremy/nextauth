@@ -36,7 +36,8 @@ const Login = () => {
   )};
 
   const handleLogin = ()=>{
-    signIn('', {callbackUrl:'/Dashboard'});
+    signIn();
+    // signIn('', {callbackUrl:'/Dashboard'});
   }
   
  return (
