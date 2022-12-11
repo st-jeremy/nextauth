@@ -7,7 +7,7 @@ export default NextAuth({
   providers:[
     CredentialsProvider({
       async authorize(credentials, req) {
-        const user = { id: 1, name: "Manager", email: "jsmith@example.com" }
+        const user = { id: 1, name: "Manager", email: "test@example.com" }
 
         if(credentials.email === "test@gmail.com" && credentials.password=== "hello123" ){
         return user
@@ -22,7 +22,7 @@ export default NextAuth({
 
   session:{
     maxAge: 1*60*60*24,
-    updateAge: 10*60*60*24
+    updateAge: 1*60*60*24
   },
 
   callbacks: {
@@ -39,5 +39,6 @@ export default NextAuth({
 
   pages: {
     signIn: '/auth/SignIn',
+    error: '/auth/Error'
   }
 })

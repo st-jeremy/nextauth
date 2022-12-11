@@ -21,7 +21,8 @@ const Login = () => {
 
  
   if (loading){
-    return (<Box>
+    return (
+    <Box>
       <Spinner
         thickness='4px'
         speed='0.65s'

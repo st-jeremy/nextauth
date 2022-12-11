@@ -56,7 +56,7 @@ export default function SignIn({ csrfToken }) {
               />
               <InputRightElement width='4.5rem'>
                 <Button h='1.75rem' size='sm' mt='2' bgColor='white' onClick={handleClick}>
-                  {show ? '&#xF340;' : '&#xF341;' }
+                  {show ? 'Show' : 'Hide' }
                 </Button>
               </InputRightElement>
             </InputGroup>
