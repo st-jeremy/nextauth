@@ -36,9 +36,9 @@ export default NextAuth({
       }
     },
   },
-  
+
   pages: {
-    signIn: '/auth/signin',
-    error: '/auth/Error'
+    signIn: '/api/auth/signin',
+    error: '/api/auth/Error'
   }
 })
