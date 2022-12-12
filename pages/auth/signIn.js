@@ -43,7 +43,7 @@ export default function SignIn({ csrfToken }) {
           </Tooltip>
           <br />
            
-          <Tooltip label="Use 'hello'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} bgColor='blue.700' > 
+          <Tooltip label="Use '12345'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} bgColor='blue.700' > 
              <InputGroup 
                 width={{base: '13rem', sm:'19rem', md: '23rem', lg: '25rem' }} 
                 margin='auto'
@@ -84,11 +84,10 @@ export default function SignIn({ csrfToken }) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  const csrfToken= await getCsrfToken(context);
 
   return {
     props: {
-      csrfToken,
+      csrfToken: await getCsrfToken(context),
       session,
     },
   }

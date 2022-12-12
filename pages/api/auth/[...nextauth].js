@@ -3,7 +3,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 
 export default NextAuth({
-  
   providers:[
     CredentialsProvider({
       name: 'Credentials',
@@ -27,9 +26,14 @@ export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
 
   session:{
+    strategy: 'jwt',
     maxAge: 10*60*60*24,
     updateAge: 10*60*60*24
   },
+  
+  // jwt: {
+  //   secret: process.env.SECRET,
+  // },
 
   callbacks: {
     async signIn() {
@@ -46,5 +50,7 @@ export default NextAuth({
   pages: {
     signIn: '/auth/signin',
     // error: '/auth/Error'
-  }
+  },
+
+  debug: true
 })
