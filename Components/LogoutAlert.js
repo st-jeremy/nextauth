@@ -18,7 +18,7 @@ export default function LogoutButton() {
   const toast = useToast();
 
   const handleLogout = ()=> {
-    signOut();
+    signOut('',  {callbackUrl:'/'});
     toast({
       title: "Logged out successfully",
       status: 'success',

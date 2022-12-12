@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 
 export default function SignIn({ csrfToken }) {
+
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
@@ -26,10 +27,10 @@ export default function SignIn({ csrfToken }) {
           <Heading> Login</Heading>
           <br />
 
-          <Input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 
           <Tooltip label="Use 'test@gmail.ng'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} bgColor='blue.700'>
-            <InputGroup display='flex' flexDirection='column' width='fit-content'  m='auto'>
+            <InputGroup display='flex' flexDirection='column' width='fit-content'  m='auto'> 
             <Input 
               type="email"
               name="email" 
@@ -42,13 +43,13 @@ export default function SignIn({ csrfToken }) {
           </Tooltip>
           <br />
            
-          <Tooltip label="Use 'hello123'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} bgColor='blue.700' >
-            <InputGroup 
+          <Tooltip label="Use 'hello'" aria-label='A tooltip' closeDelay={600} hasArrow arrowSize={15} bgColor='blue.700' > 
+             <InputGroup 
                 width={{base: '13rem', sm:'19rem', md: '23rem', lg: '25rem' }} 
                 margin='auto'
               >
               <Input 
-                type="password"  
+                type={show ? 'text' : 'password'}
                 name="password" 
                 placeholder="Password"
                 size='lg'
@@ -56,11 +57,11 @@ export default function SignIn({ csrfToken }) {
               />
               <InputRightElement width='4.5rem'>
                 <Button h='1.75rem' size='sm' mt='2' bgColor='white' onClick={handleClick}>
-                  {show ? 'Show' : 'Hide' }
+                  {show ? 'Hide' : 'Show' }
                 </Button>
               </InputRightElement>
-            </InputGroup>
-          </Tooltip>
+            </InputGroup> 
+           </Tooltip> 
           <br />
 
           <Input 
@@ -82,11 +83,12 @@ export default function SignIn({ csrfToken }) {
 }
 
 export async function getServerSideProps(context) {
-
   const session = await getSession(context);
+  const csrfToken= await getCsrfToken(context);
+
   return {
     props: {
-      csrfToken: await getCsrfToken(context),
+      csrfToken,
       session,
     },
   }

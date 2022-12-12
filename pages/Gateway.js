@@ -36,18 +36,16 @@ const Login = () => {
   )};
 
   const handleLogin = ()=>{
-    signIn();
-    // signIn('', {callbackUrl:'/Dashboard'});
+    signIn('', {callbackUrl:'/Dashboard'});
   }
   
  return (
   <>
-  {status === 'authenticated' ? (
-    <LogoutButton />
-  ): (
-    <Button onClick={handleLogin}>Sign In</Button>
-  )}
-
+    {status === 'authenticated' ? (
+      <LogoutButton />
+    ): (
+      <Button onClick={handleLogin}>Sign In</Button>
+    )}
   </>
  )
 }

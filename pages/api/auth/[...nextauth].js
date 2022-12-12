@@ -6,13 +6,19 @@ export default NextAuth({
   
   providers:[
     CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        email: { label: "Email", type: "email", placeholder: "test@gmail.com" },
+        password: {  label: "Password", type: "password" }
+      },
       async authorize(credentials, req) {
-        const user = { id: 1, name: "Manager", email: "test@example.com" }
+        const user = { id: 1, name: "Manager", email: "test@gmail.com" }
 
-        if(credentials.email === "test@gmail.com" && credentials.password=== "hello123" ){
+        if(credentials.email === "test@gmail.com" && credentials.password=== "12345" ){
         return user
         }else{
           return null
+          // Possibly add an incorrect alert here!
         }
       }
     })
@@ -21,8 +27,8 @@ export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
 
   session:{
-    maxAge: 1*60*60*24,
-    updateAge: 1*60*60*24
+    maxAge: 10*60*60*24,
+    updateAge: 10*60*60*24
   },
 
   callbacks: {
@@ -38,7 +44,7 @@ export default NextAuth({
   },
 
   pages: {
-    signIn: '/api/auth/signin',
-    error: '/api/auth/Error'
+    signIn: '/auth/signin',
+    // error: '/auth/Error'
   }
 })
