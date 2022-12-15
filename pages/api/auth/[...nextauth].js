@@ -31,9 +31,6 @@ export default NextAuth({
     updateAge: 10*60*60*24
   },
   
-  // jwt: {
-  //   secret: process.env.SECRET,
-  // },
 
   callbacks: {
     async signIn() {

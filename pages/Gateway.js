@@ -35,9 +35,12 @@ const Login = () => {
     </Box>
   )};
 
-  const handleLogin = ()=>{
+  function handleLogin (){
     signIn('', {callbackUrl:'/Dashboard'});
   }
+  // const handleLogin = ()=>{
+  //   signIn('', {callbackUrl:'/Dashboard'});
+  // }
   
  return (
   <>
