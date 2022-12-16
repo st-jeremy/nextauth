@@ -32,17 +32,17 @@ export default NextAuth({
   },
   
 
-  callbacks: {
-    async signIn() {
-      const isAllowedToSignIn = true
+  // callbacks: {
+  //   async signIn() {
+  //     const isAllowedToSignIn = true
 
-      if (isAllowedToSignIn) {
-        return true
-      } else {
-        return  false
-      }
-    },
-  },
+  //     if (isAllowedToSignIn) {
+  //       return true
+  //     } else {
+  //       return  false
+  //     }
+  //   },
+  // },
 
   pages: {
     signIn: '/auth/signin',
