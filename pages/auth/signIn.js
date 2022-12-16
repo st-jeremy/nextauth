@@ -1,4 +1,4 @@
-import { getCsrfToken, getSession} from "next-auth/react";
+import { getCsrfToken, getSession, signIn} from "next-auth/react";
 import { 
   Box, 
   Input, 
@@ -16,6 +16,11 @@ export default function SignIn({ csrfToken }) {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
+  function handleSubmit(){
+    
+    // signIn();
+  }
+
   return (
     <Box>
       <Heading m={50} color='blue.700'>Admin</Heading>
@@ -23,7 +28,11 @@ export default function SignIn({ csrfToken }) {
       <Box textAlign={'center'} margin={'auto'} mt='100' p='2rem 1rem' borderRadius={15} boxShadow='lg' width={{base: '95%', sm:'85%', md: '60%', lg: '600px' }} >
 
       <FormControl>
-        <form method="post" action="/api/auth/callback/credentials">
+        <form 
+          method="post" 
+          // onSubmit={handleSubmit}
+          action="https://nextauth-fawn.vercel.app/api/auth/callback/credentials"
+        >
           <Heading> Login</Heading>
           <br />
 
