@@ -16,10 +16,10 @@ export default function SignIn({ csrfToken }) {
   const [show, setShow] = useState(false)
   const handleClick = () => setShow(!show)
 
-  function handleSubmit(){
+  // function handleSubmit(){
     
-    // signIn();
-  }
+  //   // signIn();
+  // }
 
   return (
     <Box>
@@ -31,7 +31,7 @@ export default function SignIn({ csrfToken }) {
         <form 
           method="post" 
           // onSubmit={handleSubmit}
-          action="https://nextauth-fawn.vercel.app/api/auth/callback/credentials"
+          // action="https://nextauth-fawn.vercel.app/api/auth/callback/credentials"
         >
           <Heading> Login</Heading>
           <br />
